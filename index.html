@@ -1,0 +1,670 @@
+﻿
+<!-- <?php
+//PHP code to sent contact form to both client and owner
+if (isset($_POST['submit'])) { //Check if user enter data
+    $mailto = "design@gmail.com"; //My email address
+    $from = $_POST['email']; //Senders email address
+    $name = $_POST['name']; //User name
+    $subject = $_POST['subject'];
+    $subject2 = "Your Message Submitted Successfully "; //This is for client
+    $message = "Client Name: ". $name. ", Wrote the Following Message". "\n\n". $_POST['message'];
+    $message2 = "Dear ". $name. "\n\n" ."Thank You for contacting us! We'll get back to you shortly"; //This is for sender
+    $headers = "From: ". $from; // User entered email address
+    $headers2 = "From: ". $mailto; //This will receive to client
+    $result = mail($mailto, $subject, $message, $headers); //send email to website owner
+    $result2 = mail($from, $subject2, $message2, $headers2); //send email to User as well
+    if ($result) {
+        echo '<script type="text/javascript">alert("Message Sent Successfully. Thank you! We will contact you shortly.")</script>';
+    }else {
+        echo '<script type="text/javascript">alert("Submission failed! Try again Later") </script>';
+    }
+} 
+
+?> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet">
+    <meta name="author" content="">
+    <meta name="google-site-verification" content="eA-bzG__RUmd64Y9csVmeXVMe-tDQBeLc6PX18DAez0" />
+    
+    <title>
+      
+        AS Sports
+      
+    </title>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href='https://fonts.googleapis.com/css?family=Lora:400,400italic|Work+Sans:300,400,500,600' rel='stylesheet' type='text/css'>
+      <link href="assets/css/toolkit-startup.css" rel="stylesheet">
+      <link href="assets/css/application-startup.css" rel="stylesheet">
+      <link type="text/css" href="myStyle.css" rel="stylesheet">
+
+
+      <!------Top button cdn link-->
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+      
+      <!----Animate.css cdn link-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+      
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
+    <style>
+      
+      body {
+          font-family: 'Poppins', sans-serif;
+      }
+      p {
+          font-size: 16px !important;
+      }
+      @media (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+        body {
+          width: 1px;
+          min-width: 100%;
+          *width: 100%;
+         
+        }
+
+        #stage {
+          height: 1px;
+          overflow: auto;
+          min-height: 100vh;
+          -webkit-overflow-scrolling: touch;
+        }
+      }
+      #contactInfo {
+          float: left;
+          padding: 3px;
+          margin-left: 17px;
+          margin-top:-5px;
+      }
+      .info {
+          margin-left: 15px;
+          font-size: 15px;
+          color:white;
+      }
+      .email:hover {
+          color:#d4d4d4;
+      }
+      .icon {
+          float: right;
+          font-size: 22px;
+          margin-right: 15px;
+          color: white;
+ 
+      }
+      .icon:hover {
+        color:#d4d4d4 !important;
+      }
+      .sideIcone {
+          font-size: 20px;
+          margin: 15px;
+          color: black;
+      }
+      #socialLinks {
+          width: 80%;
+          margin: 10px auto;
+      }
+      #socialIcon {
+          margin-right: 20px;
+      }
+       .main {
+    width: 80%;
+    margin: 10px auto;
+}
+
+ .form-control {
+    padding-left: 10px;
+}   
+ .search {
+     width: 14%;
+     margin-top: -4px!important;
+     margin-right: -4px!important;
+ }
+ 
+  @media (max-width: 600px) {
+      .fontChange {
+          font-size:20px;
+          align-content:center;
+          justify-content:center;
+          text-align:center;
+      }
+      .contact {
+          margin-top: 25px!important;  
+      }
+      .block-titleData {
+        font-size: 29px !important;
+        font-weight: 600 !important;
+        margin-top: -20px !important;
+      }
+  }
+  @media (max-width: 700px) {
+      #ourWork {
+          height: 450px!important;
+      }
+  }
+  .fontChange:hover {
+      color: rgb(37, 73, 141);
+  }
+  .myColor{
+   background-color: rgb(36, 30, 30)!important;
+   opacity: 0.7!important;
+   width: 400px;
+   height: 70px;
+   padding-top:0.3px;
+   margin: 0 auto;
+ }
+    </style>
+  </head>
+
+
+<body>
+  <!-- Side Bar menu items code -->
+
+<div class="stage-shelf stage-shelf-right hidden" id="sidebar">
+  <ul class="nav nav-bordered nav-stacked flex-column">
+    <li class="nav-header">AS Sports </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="index.html">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#aboutUs">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#services">Services</a>
+    </li>
+    <li class="nav-item">
+       <a class="nav-link" href="#pricing">Pricing</a>
+    </li>
+    <li class="nav-item">
+       <a class="nav-link" href="#ourstore">Store</a>
+    </li>
+    <li class="nav-item">
+       <a class="nav-link" href="#contact">Contact</a>
+    </li>
+    <li class="nav-item">
+        <div class="main">
+           <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search Here">
+                 <div class="input-group-append">
+                    <button class="btn btn-secondary" type="button">
+                      <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+</li>
+    <li class="nav-item">
+        <div id="socialLinks">
+            <a href="https://web.facebook.com/HmaWebdesign/" target="_blank" class="sideIcone"><i class="fa fa-facebook"></i></a>
+            <a href="https://linkedin.com/in/engrmianayub" target="_blank" class="sideIcone"><i class="fa fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/channel/UCCj8edobyplMAnhwYvi9n4A" target="_blank" class="sideIcone"><i class="fa fa-youtube"></i></a>
+            <a href="https://twitter.com/HmaWebdesign" target="_blank" class="sideIcone"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.instagram.com/hmawebdesign/" target="_blank" class="sideIcone"><i class="fa fa-instagram"></i></a>
+        </div>
+    </li>
+  </ul>
+</div>
+
+<div class="stage" id="stage">
+<div class="block block-inverse block-fill-height app-header"
+     style="background-image: url(images/images6.jpg);
+     background-attachment: fixed; height:700px;">
+ 
+  <div class="py-3 mx-4 fixed-top app-navbar">
+   <div id="topBar">
+       <div class ="topBarItems hidden-sm-down">
+           <div id="contactInfo">
+               <a href="mailto: hmawebdesign@hotmail.com"  class="email info"><span class="ml-1 mr-2" style="font-size:20px; position:relative; top:1px;">&#9993;</span> assports2001@gmail.com</a>
+               <span class="info"><span class="mr-2" style="font-size:20px; position:relative; top:1px;"><i class="fa fa-whatsapp"></i></span> +91-6290687112</span>
+           </div>
+           <div id="socialIcon">
+                <div class="search icon" >
+                   <div class="input-group" style="margin-top:1px!important;">
+                       <input type="search" name="search" class="form-control" placeholder="Search Here" style="height:25px!important;margin-top:4px;">
+                       <div class="input-group-append">
+                           <button class="btn btn-secondary mr-4 mb-1" style="height:25px!important; padding:3px 7px;">
+                               <span ><i class="fa fa-search" ></i></span>
+                           </button>
+                       </div>
+                   </div>
+               </div> 
+               <a href="https://www.youtube.com/watch?v=PtdPyTjM_zo" target="_blank" class="icon"><i class="fa fa-facebook"></i></a>
+               <a href="https://www.youtube.com/watch?v=PtdPyTjM_zo" target="_blank" class="icon"><i class="fa fa-linkedin"></i></a>
+               <a href="https://www.youtube.com/watch?v=PtdPyTjM_zo" target="_blank" class="icon"><i class="fa fa-youtube"></i></a>
+               <a href="https://www.youtube.com/watch?v=PtdPyTjM_zo" target="_blank" class="icon"><i class="fa fa-twitter"></i></a>
+               <a href="https://www.youtube.com/watch?v=PtdPyTjM_zo" target="_blank" class="icon"><i class="fa fa-instagram"></i></a>
+           </div>
+       </div>
+   </div>
+
+ <!-- top line -->
+  <div id="topLine" class="hidden-sm-down"></div>
+
+  <nav class="navbar container navbar-transparent navbar-padded navbar-toggleable-sm">
+    <button
+      class="navbar-toggler navbar-toggler-right hidden-md-up"
+      type="button"  
+      data-target="#stage"
+      data-toggle="stage"
+      data-distance="-250">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <a class="navbar-brand mr-auto " href="https:">
+          <img src="images/logo.png" style="width:150px; display: none; margin-top: -20px;"/>
+    </a>
+
+    <div class="hidden-sm-down">
+      <ul class="navbar-nav mb-3">
+        <li class="nav-item px-2">
+          <a class="nav-link " href="https:">Home</a>
+        </li>
+        <li class="nav-item px-2 ">
+          <a class="nav-link" href="#aboutUs">About</a>
+        </li>
+        <li class="nav-item px-2 ">
+          <a class="nav-link " href="#services">Services</a>
+        </li>
+        <li class="nav-item px-2 ">
+          <a class="nav-link " href="#pricing">Pricing</a>
+        </li>
+        <li class="nav-item px-2">
+            <a class="nav-link " href="#ourstore">Store</a>
+        </li>
+        <li class="nav-item px-2">
+            <a class="nav-link " href="#contact">Contact</a>
+         </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+  <div class="block-xs-middle ">
+    <div class="container " >
+      <div class="row justify-content-center mt-4">
+        <div class="col-sm-10 col-lg-7 ">
+          <h1 class="block-titleData frequency mt-5 wow fadeInDown" style="font-size: 48px;">AS Sports</h1>
+           <hr class="my-2 float-left wow fadeInLeft" data-wow-delay="0.3s" style= "border: 1px solid white; width: 94%;" />
+          <p class="lead text-xl mb-4 mt-2 text-muted float-left wow fadeInUp" data-wow-delay="0.6s" style="font-weight: 500;">A to Z sports items available Jersey & Boot collection available - Jersey stating price only 50 rupees ( all over India Home Daliver available )</p>
+
+             <!-- Action button -->
+            <div class="wow zoomInUp" data-wow-duration="1.5s"  data-wow-delay="1s">
+              <a href="homepage.html" target="_blank" class="btn myBtn btn-outline-secondary btn-md" style="font-size: 25px;">
+                    Order Now
+              </a>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  <div id="aboutUs" class="container-fluid" style="background-color:rgb(2, 3, 3)">
+    <div class="row flex-row-reverse py-5 mr-5">
+      <div class="col-md-5 col-sm-10 col-xs-10 my-auto mr-3 wow zoomIn" data-wow-delay="0.2s" data-wow-duration="1s">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d919.5244702253314!2d88.34661118537383!3d22.79883673145194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89b45fc5328c5%3A0x71081dacb9865d1!2sA%20S%20Sports!5e0!3m2!1sen!2sin!4v1672814180816!5m2!1sen!2sin" width="600" height="450" style="border:0;" style="border: 5px rgb(0, 0, 0);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="col-md-6 col-sm-11 col-xs-12 ml-5">
+            <h2 class="text-uppercase mb-4 mt-4 text-white wow fadeInLeft" data-wow-delay="0.2s" data-wow-duration="1s">
+          ADDRESS :
+            </h1>
+            <p class="text-white lead text-muted wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+                83 GT Road Sita Ram market Champdani, Baidabati , Hooghly, West Bengal ( Kolkata ) 
+Pin - 712222 
+            </p>
+
+            <div class="row">
+                <div class="col-sm-6 col-xs-12 mb-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+                    <h4 class="text-white text-uppercase mb-2">By Bus</h4>
+                    <p class="text-muted lead ">
+                        By bus you can ..................................
+                    </p>
+                </div>
+                <div class="col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.8s">
+                    <h4 class="text-white text-uppercase mb-2">By Train</h4>
+                    <p class="text-muted lead">
+                         By train you can ...............................
+                    </p>
+                </div>
+            </div>
+    </div>
+   </div>
+ </div>
+
+    <div id="services" class="block"
+         style="background-image: url(images/image5.jpg); background-attachment: fixed; height:auto; padding: 30px!important; ">
+        <h1 class="text-center text-uppercase mt-3 text-white wow jackInTheBox" data-wow-delay="0.1s">Services We can Provide</h1>
+        <div class="container">
+              <div class="card-deck">
+                  <div class="card my-5 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.2s">
+                    <img class="card-img-top img-fluid mx-auto" src="images/responsive.png" style="width:45%;" alt="Card image cap">
+                      <div class="card-body">
+                          <h4 class="card-title text-center mt-0 mb-3">BULK ORDERS</h4>
+                          <p class="card-text lead text-center">We accept orders in bulk from our beloved customers
+                           and grow your brand new business. We are providing following products in very reasonable prices:
+                           </p>
+                           <ul>
+                               <li>First Copy Jersey</li>
+                               <li>Master Copy Jersey</li>
+                               <li>Original Jersey</li>
+                               <li>Original Spikes </li>
+                               <li>Original Sports Kit</li>
+                           </ul>  
+                          <div class="d-flex justify-content-center mt-5 mb-5">
+                              <a href="https://www.fiverr.com/share/ydZZw0" target="_blank" type="button" class="btn btn-outline-success btn-md"> &#x1F6C8; Learn More</a>
+                          </div>
+                  </div>
+                </div>
+                  <div class="w-100 d-none d-sm-block d-md-none"></div>
+                  <div class="card my-5 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1.2s">
+                      <img class="card-img-top img-fluid mx-auto mt-3" src="images/template.png" style="width:35%;">
+                      <div class="card-body">
+                          <h4 class="card-title text-center mb-4 mt-4">HOME DELIVERY</h4>
+                          <p class="card-text text-center">We accept orders from all over India and ensure you to get you the product 
+                           safely. Currently we dont have cash on delivery feature but we can provide:
+                          </p>
+                          <ul>
+                              <li>On Time Delivery</li>
+                              <li>Realtime Tracking ID</li>
+                              <li>Query Resolve on Phone</li>
+                              <li>Up to 10days of Gurrantee</li>
+                              <li>Online Payment(Gpay,PhonePe,QR)</li>
+                          </ul>
+                          <div class="d-flex justify-content-center my-5">
+                              <a href="https://www.fiverr.com/share/5Aaax7" target="_blank" class="btn btn-outline-success btn-md"> &#x1F6C8; Learn More</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+                  <div class="card my-5 wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1.2s">
+                      <img class="card-img-top img-fluid mx-auto mt-4" src="images/wordpress.png" style="width:32%;" alt="Card image cap">
+                      <div class="card-body">
+                          <h4 class="card-title text-center mt-4 mb-4">TROPHIES and MEDALS</h4>
+                          <p class="card-text text-center mx-2">We are selling out medals and trophies in very reasonable prices.You can order for your
+                            organization or for your self:
+                          <ul>
+                              <li>Small Size Trophies</li>
+                              <li>Medium Size Trophies</li>
+                              <li>Large Size Trophies</li>
+                              <li>Gold or Silver colored Medals </li>
+                              <li>Flags</li>
+                          </ul>
+                          <div class="d-flex justify-content-center my-5">
+                              <a href="https://www.fiverr.com/share/3bYYY9" target="_blank" class="btn btn-outline-success btn-md"> &#x1F6C8; Learn More </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+    </div>
+</div>
+
+<!-- Our Work -->
+<div class="block block-inverse app-high-praise" id="ourstore"
+     style="background-image: url(assets/img/startup-3.jpg); padding:30px!important; background-attachment: fixed; height:720px;">
+    <h1 class="text-center text-uppercase font-weight-bold mt-4 wow rotateInDownLeft" >Our Store View</h1>
+    <div class="container col-md-9 ">
+        <!-- Slide Show -->
+        <div id="carouselExampleIndicators" class="carousel slide mt-5 mb-5 wow zoomIn" data-wow-delay="0.3s" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+            </ol>
+            <div class="carousel-inner" style="max-height: 650px !important;">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="images/1.jpg" alt="Web Theme">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Responsive Web Template</h5>
+                        <p>Contact us to get this website at cheap price</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/2.jpg" alt="Website Theme Design">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Responsive WebDesign</h5>
+                        <p>Contact us, today to get this design at cheap price</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/3.jpg" alt="Website Theme Design">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Responsive Website</h5>
+                        <p>Contact us, today to get this design at cheap price</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/4.jpg" alt="Website Theme Design">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Responsive WebDesign</h5>
+                        <p>Contact us, today to get this design at cheap price</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/5.jpg" alt="Website Theme Design">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Responsive WebDesign</h5>
+                        <p>Contact us, today to get this design at cheap price</p>
+                    </div>
+                </div>
+                
+            
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!--Ende Slide Show-->
+  </div>
+</div>
+
+<!------------------Pricing code--------------------->
+
+
+
+
+    <!--------------Features--------------->
+
+<div id="features" class="block block-success app-block-marketing-grid" style="padding:50px!important;">
+  <div class="container text-xs-center" >
+    <div class="row mb-5" >
+      <div class="col-xs-8 col-sm-10 offset-sm-1 col-lg-6 offset-lg-3 wow jackInTheBox" data-wow-delay="0.8s">
+        <h2  class="mb-4 text-uppercase text-center .text-info font-weight-bold"> Our Professional Web Features!</h2>
+      </div>
+    </div>
+
+    <div class="row app-marketing-grid">
+      <div class="col-md-4 px-4 mb-5 wow zoomIn" data-wow-delay="0.8s">
+        <img class="mb-1" src="assets/img/startup-9.svg">
+        <p><strong>24/7 support:</strong> We are always here for you no matter what time of day.</p>
+      </div>
+      <div class="col-md-4 px-4 mb-5 wow zoomIn" data-wow-delay="0.9s">
+        <img class="mb-1" src="assets/img/startup-10.svg">
+        <p><strong>Exclusive Content:</strong> Copyrights Free images and graphics</p>
+      </div>
+      <div class="col-md-4 px-4 mb-5 wow zoomIn" data-wow-delay="1s">
+        <img class="mb-1" src="assets/img/startup-11.svg">
+        <p><strong>Fast Delivery:</strong> Your projects will be delivered within a given time.</p>
+      </div>
+    </div>
+
+    <div class="row app-marketing-grid">
+      <div class="col-md-4 px-4 mb-5 wow zoomIn" data-wow-delay="1.1s">
+        <img class="mb-1" src="assets/img/startup-12.svg">
+        <p><strong>Affordable:</strong> Our prices are affordable and reasonable.</p>
+      </div>
+      <div class="col-md-4 px-4 mb-5 wow zoomIn" data-wow-delay="1.2s">
+        <img class="mb-1" src="assets/img/startup-13.svg">
+        <p><strong>Responsiveness:</strong> Highly professional and responsive design on all devices</p>
+      </div>
+      <div class="col-md-4 px-4 mb-5 wow zoomIn" data-wow-delay="1.3s" data-wow-duration="1s">
+        <img class="mb-1" src="assets/img/startup-14.svg">
+        <p><strong>Client Satisfaction:</strong>100% client satisfaction with a money-back guarantee.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-------------Footer--------------->
+
+<div class="block block-inverse app-footer" id="contact" >
+    <h2 class="w3-wide text-center mb-5 contact" style="position:relative; top: -50px;">
+        CONTACT
+    </h2>
+ <div class="container">
+     <div class="w3-content w3-padding-5" style="max-width:1090px; margin-top:-70px!important;">
+         <div class="w3-row w3-padding-32">
+             <div class="w3-col m6 w3-large mb-4">
+                 <span class="ml-1"><i class="fa fa-map-marker" style="width:30px"></i></span> Hooghly,West Bengal<br>
+                 <i class="fa fa-whatsapp" style="width:30px"></i>6290687112<br>
+                 <i class="fa fa-envelope" style="width:30px"> </i> <a href="mailto: @gmail.com">assports@gmail.com</a> <br>
+                 <div class="float-left my-3 ml-4">
+                     <a href="https://web.facebook.com/HmaWebdesign/" target="_blank" class="icon ml-3"><i class="fa fa-facebook"></i></a>
+                     <a href="https://linkedin.com/in/engrmianayub" target="_blank" class="icon ml-3"><i class="fa fa-linkedin"></i></a>
+                     <a href="https://www.youtube.com/channel/UCCj8edobyplMAnhwYvi9n4A" target="_blank" class="icon ml-3"><i class="fa fa-youtube"></i></a>
+                     <a href="https://twitter.com/HmaWebdesign" target="_blank" class="icon ml-2"><i class="fa fa-twitter"></i></a>
+                     <a href="https://www.instagram.com/hmawebdesign/" target="_blank" class="icon ml-2"><i class="fa fa-instagram"></i></a>
+                 </div>
+             </div>
+             <div class="w3-col m6">
+                 <form method="post" action="" style="margin:0 16px 8px 16px">
+                     <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                         <div class="w3-half mb-2">
+                             <input class="w3-input w3-border" type="text" placeholder="Full Name" required name="name">
+                         </div>
+                         <div class="w3-half">
+                             <input class="w3-input w3-border" type="email" placeholder="Email" required name="email">
+                         </div>
+                     </div>
+                     <input class="w3-input w3-border mb-3" type="text" placeholder="Subject" required name="subject">
+                     <input class="w3-input w3-border" type="text" placeholder="Write your message..." required name="message">
+                     <button class="btn w3-green w3-hover-black w3-section w3-left" type="submit" name="submit">SEND</button>
+                 </form>
+             </div>
+         </div>
+     </div>
+  
+    <div class="row">
+      <div class="col-md-5 mb-5">
+        <ul class="list-unstyled list-spaced">
+          <li class="mb-4"><h4 class="text-uppercase">About</h4></li>
+          <li>
+              <span class="text-muted">
+                Football jersey wholesale market in Kolkata ( AS sport's ) ✓
+                Contact no - 6290687112 ( soaib 😎 ) 
+                A to Z sports items available Jersey & Boot collection available - Jersey stating price only 50 rupees ( all over India Home Daliver available ) 
+                Address - 83 GT Road Sita Ram market Champdani, Baidabati , Hooghly, West Bengal ( Kolkata ) 
+                Pin - 712222.
+                  If you’d like to learn more, or are interested in a web project, contact us at anytime.
+              </span>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2 offset-md-1 mb-5">
+        <ul class="list-unstyled list-spaced">
+          <li class="mb-4"><h6  class="text-uppercase">Languages</h6></li>
+          <li class="text-muted">HTML5</li>
+          <li class="text-muted">CSS3</li>
+          <li class="text-muted">JavaScript</li>
+          <li class="text-muted">PHP</li>
+            <li class="text-muted">Python</li>
+        </ul>
+      </div>
+      <div class="col-md-2 mb-5">
+        <ul class="list-unstyled list-spaced">
+          <li class="mb-4"><h6>Explore</h6></li>
+          <li><a href="#ourWork"  class="text-muted">Our Work</a></li>
+          <li><a href="#features"  class="text-muted">Features</a></li>
+          <li><a href="#"  class="text-muted">Videos</a></li>
+          <li><a href="#"  class="text-muted">Blogs</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2 mb-5">
+        <ul class="list-unstyled list-spaced">
+          <li class="mb-4"><h6 class="text-uppercase">Important</h6></li>
+          <li class="text-muted"><a href="#">Services</a></li>
+          <li class="text-muted">Term & Conditions</li>
+          <li class="text-muted">Privacy</li>
+          <li class="text-muted">FAQ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+ <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<hr class="my-5" style="position:relative; top:60px;" />
+    <div class="container mt-5 text-muted"style="position:relative; top:50px;">
+        <p style="font-size: 9px;">&#169; AS Sports 2023 . All rights reserved.</p>
+    </div>
+</div>
+
+<!-------------Javascript/ jQuery------------>
+
+    <script type="text/javascript">
+   
+
+        //Get the Top button:
+        mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+
+
+    </script>
+
+    <!------Animation------>
+    <script src="wow.min.js"></script>
+    <script src="jquery.waypoints.min.js"></script>
+    <script>
+              new WOW().init();
+    </script>
+
+    
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/tether.min.js"></script>
+    <script src="assets/js/toolkit.js"></script>
+    <script src="assets/js/application.js"></script>
+
+  </body>
+</html>
+
